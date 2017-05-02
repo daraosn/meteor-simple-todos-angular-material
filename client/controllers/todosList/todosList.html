@@ -1,0 +1,41 @@
+<md-card>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h3>
+        <span>
+          Todo List ({{$ctrl.incompleteCount}})
+        </span>
+      </h3>
+      <span flex></span>
+      <md-input-container>
+        <md-checkbox ng-model="$ctrl.hideCompleted">Hide Completed Tasks</md-checkbox>
+      </md-input-container>
+    </div>
+  </md-toolbar>
+
+  <md-content flex layout-padding>
+    <form ng-submit="$ctrl.addTask($ctrl.newTask)" ng-show="$ctrl.currentUser">
+      <md-input-container class="md-block">
+        <input ng-model="$ctrl.newTask" type="text" name="text" placeholder="Type to add new tasks" />
+      </md-input-container>
+    </form>
+
+    <md-list>
+      <md-list-item ng-repeat="task in $ctrl.tasks" ng-class="{'checked': task.checked, 'private': task.private}">
+        <md-checkbox ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked"></md-checkbox>
+
+        <p>
+          <strong>{{task.username}}</strong> - {{task.text}}
+        </p>
+
+        <md-button ng-click="$ctrl.setPrivate(task)" ng-show="task.owner === $ctrl.currentUser._id" aria-label="Privacy">
+          {{task.private == true ? "Private" : "Public"}}
+        </md-button>
+
+        <md-button class="md-icon-button" ng-click="$ctrl.removeTask(task)" aria-label="Delete">
+          <ng-md-icon icon="delete"></ng-md-icon>
+        </md-button>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-card>

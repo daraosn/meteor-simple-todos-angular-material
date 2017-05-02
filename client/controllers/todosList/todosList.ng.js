@@ -1,12 +1,13 @@
 import angular from 'angular';
-import angularMeteor from 'angular-meteor';
 import { Meteor } from 'meteor/meteor';
-import { Tasks } from '../../api/tasks.js';
+import { Tasks } from '/imports/api/tasks';
 
-import template from './todosList.html';
+import templateUrl from './todosList.html';
 
 class TodosListCtrl {
   constructor($scope) {
+    'ngInject';
+
     $scope.viewModel(this);
 
     this.subscribe('tasks');
@@ -41,7 +42,7 @@ class TodosListCtrl {
       currentUser() {
         return Meteor.user();
       }
-    })
+    });
   }
 
   addTask(newTask) {
@@ -66,10 +67,5 @@ class TodosListCtrl {
   }
 }
 
-export default angular.module('todosList', [
-  angularMeteor
-])
-  .component('todosList', {
-    templateUrl: 'imports/components/todosList/todosList.html',
-    controller: ['$scope', TodosListCtrl]
-  });
+export default angular.module('simple-todos')
+.component('todosList', { controller: TodosListCtrl, templateUrl });

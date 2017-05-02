@@ -1,11 +1,13 @@
 /* eslint-env mocha */
+/* global window inject */
 
 import 'angular-mocks';
 import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { sinon } from 'meteor/practicalmeteor:sinon';
 
-import todosList from '../todosList';
+import '/client/lib/angular/app.ng';
+import todosList from './todosList.ng';
 
 describe('todosList', function() {
   var element;
@@ -16,7 +18,7 @@ describe('todosList', function() {
 
     window.module(todosList.name);
 
-    inject(function(_$compile_, _$rootScope_){
+    inject(function(_$compile_, _$rootScope_) {
       $compile = _$compile_;
       $rootScope = _$rootScope_;
     });
@@ -27,7 +29,7 @@ describe('todosList', function() {
 
   describe('component', function() {
     it('should be showing incomplete tasks count', function() {
-      assert.include(element[0].querySelector('h1').innerHTML, '0');
+      assert.include(element[0].querySelector('h3').innerHTML, '0');
     });
   });
 
@@ -57,4 +59,4 @@ describe('todosList', function() {
       });
     });
   });
-})
+});

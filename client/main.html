@@ -1,9 +1,39 @@
 <head>
-  <title>Todo List</title>
+  <title>Meteor Angular Material Todos</title>
+  <base href="/">
 </head>
 
-<body>
-  <div class="container">
-    <todos-list></todos-list>
+<body ng-app="simple-todos">
+  <header class="banner">
+  <md-toolbar>
+    <div class="md-toolbar-tools container">
+    <h2 flex md-truncate>
+      <a ui-sref="home">
+      <md-button class="md-icon-button" aria-label="Home">
+        <ng-md-icon icon="home" size="20"></ng-md-icon>
+      </md-button>
+      Meteor Angular Material Todos
+      </a>
+    </h2>
+    <a ui-sref="about">
+      About
+    </a>
+    <login-buttons></login-buttons>
+    </div>
+  </md-toolbar>
+
+  <div class="welcome-text">
+    <ng-md-icon icon="web" style="fill: white;" size="128"></ng-md-icon>
+    <h1>Welcome to Meteor Angular Material Todos</h1>
+    <h2>This is a simple todo app</h2>
   </div>
+  </header>
+
+  <md-content class="main container">
+    <ui-view></ui-view>
+  </md-content>
+
+  <footer>
+  Meteor Angular Material Todos - 2017
+  </footer>
 </body>
