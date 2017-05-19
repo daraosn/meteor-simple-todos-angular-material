@@ -1,0 +1,13 @@
+login {
+  & > md-content {
+    & > md-card {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      md-login-forms {
+        width: 300px;
+        margin: auto;
+      }
+    }
+  }
+}

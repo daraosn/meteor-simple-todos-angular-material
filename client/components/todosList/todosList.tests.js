@@ -6,8 +6,8 @@ import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { sinon } from 'meteor/practicalmeteor:sinon';
 
-import '/client/lib/angular/app.ng';
-import todosList from './todosList.ng';
+import '/client/lib/angular/app';
+import todosList from './todosList';
 
 describe('todosList', function() {
   var element;
@@ -23,7 +23,7 @@ describe('todosList', function() {
       $rootScope = _$rootScope_;
     });
 
-    element = $compile('<todos-list></todos-list>')($rootScope.$new(true));
+    element = $compile('<todos-list/>')($rootScope.$new(true));
     $rootScope.$digest();
   });
 

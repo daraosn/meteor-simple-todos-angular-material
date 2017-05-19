@@ -4,30 +4,30 @@
 import 'angular-mocks';
 import { assert } from 'meteor/practicalmeteor:chai';
 
-import '/client/lib/angular/app.ng';
-import about from './about.ng';
+import '/client/lib/angular/app';
+import footer from './footer';
 
-describe('about', function() {
+describe('footer', function() {
   var element;
 
   beforeEach(function() {
     var $compile;
     var $rootScope;
 
-    window.module(about.name);
+    window.module(footer.name);
 
     inject(function(_$compile_, _$rootScope_) {
       $compile = _$compile_;
       $rootScope = _$rootScope_;
     });
 
-    element = $compile('<about></about>')($rootScope.$new(true));
+    element = $compile('<footer/>')($rootScope.$new(true));
     $rootScope.$digest();
   });
 
   describe('component', function() {
     it('should be displaying about text on header', function() {
-      assert.include(element[0].querySelector('h3').innerHTML, 'About');
+      assert.include(element[0].innerHTML, new Date().getFullYear());
     });
   });
 });

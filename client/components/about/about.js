@@ -13,5 +13,5 @@ class AboutCtrl {
   }
 }
 
-export default angular.module('simple-todos')
+export default angular.module('app')
 .component('about', { controller: AboutCtrl, templateUrl });

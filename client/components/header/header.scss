@@ -1,0 +1,66 @@
+$text-color: rgba(0, 0, 0, 0.87);
+$header-text-color: white;
+$header-spacing: 64px;
+
+header {
+  margin-top: -$header-spacing;
+  padding-top: $header-spacing;
+  background-color: #2196f3;
+  background-image: radial-gradient(ellipse farthest-side at top center, #64b5f6, #2196f3 100%);
+  background-attachment: fixed;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  color: $header-text-color;
+  .welcome-text {
+    padding-bottom: 30px;
+  }
+  ng-md-icon {
+    fill: $header-text-color;
+  }
+  md-toolbar {
+    z-index: 100;
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, 0) !important;
+    h2 {
+      color: $header-text-color;
+      font-weight: bold;
+    }
+    .md-toolbar-tools {
+      min-height: $header-spacing;
+      margin: 0 auto;
+      & > a, & > md-login-buttons {
+        color: $header-text-color;
+        margin-left: 30px;
+        line-height: 45px;
+      }
+      & > .logo {
+        margin-left: 0;
+        text-align: left;
+      }
+      .menu {
+        transition: all 0.2s ease;
+      }
+      .active-menu {
+        font-weight: bold;
+      }
+    }
+    md-login-buttons {
+      .login-forms-dropdown {
+        text-align: left;
+        line-height: normal;
+        font-weight: normal;
+        color: $text-color;
+        a {
+          color: $text-color;
+        }
+      }
+    }
+  }
+}
+
+body.logged-in {
+  header {
+    .welcome-text {
+      display: none;
+    }
+  }
+}

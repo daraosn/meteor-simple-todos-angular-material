@@ -6,12 +6,12 @@ import ngUiRouter from 'angular-ui-router';
 
 import '/imports/startup/accounts-config.js';
 
-angular.module('simple-todos', [
+angular.module('app', [
   angularMeteor,
-  'accounts.ui',
   ngMaterial,
   ngMdIcons,
   ngUiRouter,
+  'mdLoginButtons',
 ]).config(function($mdThemingProvider) {
   'ngInject';
 

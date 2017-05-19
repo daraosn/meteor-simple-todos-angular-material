@@ -1,0 +1,30 @@
+@import "{}/node_modules/angular-material/angular-material.scss";
+
+// global app rules
+body {
+  color: rgba(0, 0, 0, 0.87);
+  background: #fafafa;
+  text-align: center;
+  .container {
+    max-width: 1140px;
+    margin: 32px auto;
+    &.flexible {
+      transition: all 0.2s ease-in;
+    }
+  }
+  // the first ui-view
+  & > ui-view {
+    text-align: left;
+    margin: 0 auto;
+  }
+  // any ui-view
+  ui-view {
+    display: block;
+  }
+  // rules when user logs in
+  &.logged-in {
+    .container.flexible {
+      max-width: 100% !important;
+    }
+  }
+}

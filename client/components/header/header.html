@@ -1,0 +1,33 @@
+<md-toolbar>
+  <div class="md-toolbar-tools container flexible">
+    <a class="logo" ui-state="$root.loggedIn ? 'auth.dashboard' : 'home'" flex md-truncate>
+      <md-button class="md-icon-button" aria-label="Home">
+        <ng-md-icon icon="home" size="20"></ng-md-icon>
+      </md-button>
+      Meteor Angular Material Todos
+    </a>
+    <a class="menu" ui-sref="auth.dashboard" ui-sref-active="active-menu" ng-if="$root.loggedIn">
+      Dashboard
+    </a>
+    <a class="menu" ui-sref="home" ui-sref-active="active-menu">
+      Home
+    </a>
+    <a class="menu" ui-sref="about" ui-sref-active="active-menu">
+      About
+    </a>
+    <md-login-buttons
+      ui-sref="login"
+      ui-sref-active="active-menu"
+      ng-click="$event.preventDefault()"
+      on-signup="$root.auth.onSignup()"
+      on-login="$root.auth.onLogin()"
+      on-logout="$root.auth.onLogout()"
+    />
+  </div>
+</md-toolbar>
+
+<div class="welcome-text">
+  <ng-md-icon icon="web" style="fill: white;" size="128"></ng-md-icon>
+  <h1>Welcome to Meteor Angular Material Todos</h1>
+  <h2>This is a simple todo app</h2>
+</div>
